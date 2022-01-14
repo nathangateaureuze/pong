@@ -41,7 +41,7 @@ class Tableau1 extends Phaser.Scene{
         this.balle.setBounce(1.5,1.5)
         this.balle.setVelocityX(100)
         this.balle.setVelocityY(100)
-        this.balle.body.setMaxVelocityY(500)
+        this.balle.body.setMaxVelocityY(300)
         this.physics.add.collider(this.balle,this.haut)
         this.physics.add.collider(this.balle,this.bas)
         this.physics.add.collider(this.balle,this.gauche)
@@ -123,23 +123,33 @@ class Tableau1 extends Phaser.Scene{
          */
 
         //déplacement des raquettes
-        if(this.vitesseGauche === 1)
+        if(this.vitesseGauche === 1 && this.gauche.y>20)
         {
-            this.gauche.setPosition(this.gauche.x,this.gauche.y-1)
+            this.gauche.setPosition(this.gauche.x,this.gauche.y-5)
         }
-        if(this.vitesseGauche === -1)
+        if(this.vitesseGauche === -1 && this.gauche.y<this.hauteur-120)
         {
-            this.gauche.setPosition(this.gauche.x,this.gauche.y+1)
+            console.log(this.gauche.y)
+            this.gauche.setPosition(this.gauche.x,this.gauche.y+5)
         }
 
-        if(this.vitesseDroite === 1)
+        if(this.vitesseDroite === 1 && this.droite.y>20)
         {
-            this.droite.setPosition(this.droite.x,this.droite.y-1)
+            this.droite.setPosition(this.droite.x,this.droite.y-5)
         }
-        if(this.vitesseDroite === -1)
+        if(this.vitesseDroite === -1 && this.droite.y<this.hauteur-120)
         {
-            this.droite.setPosition(this.droite.x,this.droite.y+1)
+            this.droite.setPosition(this.droite.x,this.droite.y+5)
 
+        }
+
+        //sortie de balle
+        if (this.balle.x <=0 || this.balle.x>=this.largeur)
+        {
+            this.balle.x = this.largeur/2
+            this.balle.y = this.hauteur/2
+            this.balle.setVelocityX(100)
+            this.balle.setVelocityY(100)
         }
     }
 }
