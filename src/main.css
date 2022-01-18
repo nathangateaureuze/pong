@@ -25,6 +25,31 @@ a:visited{
     min-height: 90vh;
 
 }
+
 canvas{
     outline: 1px solid #333;
+}
+#scores
+{
+    color: #ffffff;
+    font-size : 5vw;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 50%;
+}
+
+.score
+{
+    color:#ffffff
+}
+.name
+{
+    font-size: 3vw;
+}
+
+#scores >*
+{
+    margin: 1vw;
 }

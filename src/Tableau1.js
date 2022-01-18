@@ -44,7 +44,11 @@ class Tableau1 extends Phaser.Scene{
         this.physics.add.collider(this.balle,this.gauche,function(){me.rebond(me.gauche)});
         this.physics.add.collider(this.balle,this.droite,function(){me.rebond(me.droite)});
 
+        this.joueurGauche = new Jouer("Joueur 1","0")
+        this.joueurDroite = new Jouer("Joueur 2","0")
+
         this.touches()
+        this.out()
     }
 
     //vitesses des raquettes
@@ -104,6 +108,12 @@ class Tableau1 extends Phaser.Scene{
         this.balle.setVelocityY(this.balle.body.velocity.y + positionRelativeRaquette * 1000);
     }
 
+    gagnation(joueur)
+    {
+        this.out()
+        joueur.score ++
+    }
+
     out()
     {
         this.balle.x = this.largeur/2
@@ -139,11 +149,11 @@ class Tableau1 extends Phaser.Scene{
         //sortie de balle
         if (this.balle.x>=this.largeur)
         {
-            this.out()
+            this.gagnation(this.joueurGauche)
         }
         if (this.balle.x <=0)
         {
-            this.out()
+            this.gagnation(this.joueurDroite)
         }
     }
 }
