@@ -4,6 +4,7 @@ class Tableau1 extends Phaser.Scene{
     {
         this.load.image("carre","assets/carre.png")
         this.load.image("cercle","assets/cercle.png")
+        this.load.image("fond","assets/fond.png")
     }
 
     create()
@@ -12,6 +13,8 @@ class Tableau1 extends Phaser.Scene{
 
         this.hauteur=500
         this.largeur=1000
+
+        this.fond = this.add.image(0,0,"fond").setOrigin(0,0)
 
         this.haut = this.physics.add.image(0,-20,"carre").setOrigin(0,0)
         this.haut.setDisplaySize(this.largeur,20)
