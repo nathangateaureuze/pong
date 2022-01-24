@@ -23,5 +23,4 @@ class Jouer
         this.$name.textContent=name;
 
     }
-
 }
