@@ -1,7 +1,7 @@
 body{
     font-family: Arial, sans-serif;
     font-size: 12px;
-    background-color: #ADDAAD;
+    background-color: #202020;
     text-align: center;
 }
 a{
@@ -32,12 +32,12 @@ canvas{
 #scores
 {
     color: #ffffff;
-    font-size : 5vw;
+    font-size: 5vw;
     display: flex;
     justify-content: center;
     position: absolute;
     top: 0;
-    width: 50%;
+    width: 100%;
 }
 
 .score
